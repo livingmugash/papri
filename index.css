@@ -1,0 +1,150 @@
+/* papri.css */
+
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    @apply antialiased text-slate-700 bg-white; /* Apply base Tailwind styles */
+}
+
+/* Enable Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header Navigation Link Styling */
+.nav-link {
+    @apply text-sm font-medium text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out pb-1 border-b-2 border-transparent hover:border-indigo-200;
+}
+.nav-link-mobile {
+     @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50;
+}
+
+
+/* Get Started Section - Step Cards */
+.step-card {
+    @apply bg-white p-6 rounded-lg shadow border border-gray-100 flex flex-col items-center transition duration-300 ease-in-out hover:shadow-md hover:border-indigo-100;
+    position: relative; /* Needed for absolute positioning of the number */
+}
+
+.step-number {
+    @apply absolute -top-4 -left-3 w-8 h-8 flex items-center justify-center bg-indigo-600 text-white font-bold text-sm rounded-full shadow;
+}
+
+.step-icon {
+    @apply w-12 h-12 mb-4 text-indigo-500;
+}
+
+.step-title {
+    @apply text-lg font-semibold mb-2 text-gray-800;
+}
+
+.step-description {
+    @apply text-sm text-slate-600;
+}
+
+/* Payment Form - Stripe Element Container */
+#card-element {
+    @apply bg-gray-50 p-3 border border-gray-300 rounded-md shadow-sm;
+    /* Add more specific styles if needed for focus states, etc. */
+}
+
+/* Authentication Section - Form Container */
+.auth-form-container {
+    /* Base styles already applied via Tailwind in HTML */
+}
+
+
+/* FAQ Section - Accordion Styling */
+.faq-item {
+    /* Base styles applied via Tailwind */
+    transition: margin 0.2s ease-out; /* Smooth transition when opening/closing */
+}
+
+.faq-summary {
+    @apply flex justify-between items-center cursor-pointer list-none py-2 font-medium text-gray-800 hover:text-indigo-600;
+    transition: color 0.2s ease-out;
+}
+
+.faq-content {
+    @apply text-slate-600 text-sm pt-2 pb-2 overflow-hidden;
+    /* max-height transition handled by details element inherently, but fine-tuning might be needed */
+}
+
+/* Hide the default summary marker */
+.faq-summary::-webkit-details-marker {
+    display: none;
+}
+.faq-summary::marker {
+    display: none;
+}
+
+/* Icon Visibility Toggle */
+.faq-item[open] .icon-open {
+    display: none;
+}
+.faq-item:not([open]) .icon-close {
+    display: none;
+}
+
+.faq-item[open] .faq-summary {
+    @apply text-indigo-700; /* Color when open */
+}
+
+.accordion-icon {
+     @apply transition-transform duration-200 ease-out;
+}
+
+.faq-item[open] .accordion-icon {
+    /* Optional: Add rotation */
+    /* transform: rotate(45deg); */
+}
+
+
+/* Footer Link Styling */
+.footer-link {
+    @apply text-slate-400 hover:text-indigo-300 transition duration-150 ease-in-out;
+}
+
+/* Utility for spinner or loading animations if needed later */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #4f46e5; /* Indigo */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* papri.css additions */
+
+/* Payment Method Tabs */
+.payment-tab {
+    @apply transition duration-150 ease-in-out focus:outline-none;
+    /* Base styles are applied in HTML via Tailwind */
+}
+
+/* Active Tab Style (applied by JS, but good to define) */
+.payment-tab.active {
+     @apply border-indigo-500 text-indigo-600;
+}
+.payment-tab:not(.active) {
+     @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300;
+}
+
+/* Payment Method Content Area base */
+.payment-method-area {
+    /* Add transition if desired */
+    /* transition: opacity 0.3s ease-in-out; */
+}
+
+/* Style for hidden areas */
+.payment-method-area.hidden {
+    display: none;
+}
