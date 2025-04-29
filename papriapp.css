@@ -1,0 +1,142 @@
+/* app.css V4 - Mobile Responsive */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Improve scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: #a5b4fc #e5e7eb;
+}
+/* For Webkit browsers */
+body::-webkit-scrollbar { width: 8px; }
+body::-webkit-scrollbar-track { background: #e5e7eb; border-radius: 10px; }
+body::-webkit-scrollbar-thumb { background-color: #a5b4fc; border-radius: 10px; border: 2px solid #e5e7eb; }
+
+/* Sidebar Styling (Handles mobile transition) */
+#sidebar.active {
+    transform: translateX(0);
+}
+
+/* Backdrop for mobile sidebar */
+#sidebar-backdrop.active {
+    display: block;
+}
+
+/* Base font size slightly smaller for mobile */
+html {
+    font-size: 15px; /* Base size */
+}
+@screen sm {
+    html { font-size: 16px; } /* Increase slightly on larger screens */
+}
+
+
+/* Navigation */
+.nav-item {
+    @apply relative flex items-center px-3 sm:px-4 py-2.5 text-sm font-medium text-gray-600 rounded-md mx-2 hover:bg-gray-100 hover:text-gray-900 transition duration-150 ease-in-out cursor-pointer;
+}
+/* Other nav styles remain largely the same */
+.nav-item.active { @apply bg-indigo-50 text-indigo-700 font-semibold; }
+.nav-item.active .nav-icon { @apply text-indigo-600; }
+.nav-icon { @apply w-5 h-5 mr-2 sm:mr-3 flex-shrink-0 text-gray-400 group-hover:text-gray-500 transition-colors duration-150 ease-in-out; }
+
+
+/* Main Content Area View Styling */
+.app-view {
+    animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Result Card Styling */
+.result-card {
+    @apply bg-white p-3 sm:p-4 rounded-lg shadow border border-gray-200 flex flex-col md:flex-row gap-3 sm:gap-4 overflow-hidden transition duration-200 ease-in-out;
+}
+.result-card:hover { @apply shadow-md; }
+
+/* Thumbnail adjustments for mobile */
+.result-card .thumbnail-container {
+    @apply aspect-video bg-gray-300 rounded overflow-hidden relative cursor-pointer group w-full md:w-48 lg:w-56 flex-shrink-0; /* Full width on mobile */
+}
+
+/* Details container */
+.result-card .details-container {
+     @apply flex-grow min-w-0; /* Prevent overflow */
+}
+
+/* Action Buttons */
+.action-button {
+    @apply inline-flex items-center px-2 py-1 sm:px-2.5 border border-gray-300 text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-indigo-500 transition-colors duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap;
+}
+.action-icon {
+     @apply w-3 h-3 mr-1 sm:mr-1.5 flex-shrink-0;
+}
+/* Adjust gap between buttons */
+.actions-container-1, .actions-container-2 {
+    @apply flex flex-wrap gap-1.5 sm:gap-2 items-center;
+}
+
+
+/* Edit Controls Area */
+.edit-controls {
+    @apply hidden mt-3 sm:mt-4 p-2 sm:p-3 bg-gray-100 rounded border border-gray-200;
+    min-height: 150px; /* Adjust as needed */
+}
+
+/* Styling for Plyr player within cards */
+.plyr {
+    @apply rounded max-w-full;
+}
+/* Reduce player controls padding on smaller screens if needed */
+.plyr--video .plyr__controls {
+     padding: 5px 5px 5px; /* Default is more */
+}
+
+
+/* AI Summary & Topics */
+.ai-summary-content, .ai-topics-list {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.ai-summary-content.expanded { max-height: 500px; }
+.topic-tag { @apply inline-block bg-gray-100 text-gray-700 text-xs font-medium px-1.5 sm:px-2 py-0.5 rounded-full; }
+
+
+/* Ask AI Input */
+.ask-ai-input { @apply flex-grow px-2 py-1 border border-gray-300 rounded-l-md focus:ring-indigo-500 focus:border-indigo-500 text-xs; }
+.ask-ai-button { @apply px-2 py-1 border border-indigo-600 text-xs font-medium rounded-r-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-1 focus:ring-offset-0 focus:ring-indigo-500; }
+
+
+/* Share Button & Dropdown */
+.share-dropdown {
+    @apply absolute right-0 sm:left-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-20 origin-top-right sm:origin-top-left;
+    animation: scaleIn 0.1s ease-out;
+}
+.share-item { @apply flex items-center px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer; }
+.share-item i { @apply w-4 h-4 mr-2 sm:mr-3 text-gray-500; }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+
+/* Dynamic Tooltip Styling */
+.tooltip-popup {
+    @apply fixed z-50 px-2 py-1 bg-gray-900 text-white text-xs font-medium rounded shadow-lg opacity-0 transition-opacity duration-200 ease-in-out pointer-events-none whitespace-nowrap;
+}
+.tooltip-popup.visible { opacity: 1; }
+
+
+/* Loading Spinner */
+.spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    width: 18px; height: 18px; border-radius: 50%;
+    border-left-color: #4f46e5; animation: spin 1s linear infinite;
+    @apply inline-block align-middle;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
+/* Line clamping */
+.line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
