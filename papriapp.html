@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Papri - Responsive AI Video Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="papriapp.css">
+    <script src="https://unpkg.com/lucide-react@0.390.0/dist/umd/lucide.min.js"></script>
+
+</head>
+<body class="bg-gray-100 font-poppins antialiased text-gray-800">
+
+    <div class="flex h-screen overflow-hidden">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex md:flex-col md:flex-shrink-0">
+            <div class="h-16 flex items-center justify-center px-4 border-b border-gray-200 flex-shrink-0">
+                 <a href="#search" class="flex items-center space-x-1 text-2xl font-bold text-indigo-600 app-link">
+                    <span>P</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play transform scale-x-[-1] rotate-[-90deg] w-5 h-5 inline-block"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <span>pri</span>
+                </a>
+            </div>
+
+            <nav class="flex-grow overflow-y-auto py-4 space-y-1">
+                <a href="#search" class="nav-item active" data-target="search-view" aria-label="Search for video content">
+                    <i data-lucide="search" class="nav-icon"></i>
+                    <span>Search</span>
+                </a>
+                <a href="#history" class="nav-item" data-target="history-view" aria-label="View your search history">
+                    <i data-lucide="history" class="nav-icon"></i>
+                    <span>History</span>
+                </a>
+                 <a href="#referrals" class="nav-item" data-target="referrals-view" aria-label="Refer friends and earn rewards">
+                    <i data-lucide="gift" class="nav-icon"></i>
+                    <span>Referrals</span>
+                </a>
+                <a href="#settings" class="nav-item" data-target="settings-view" aria-label="Manage account settings">
+                    <i data-lucide="settings" class="nav-icon"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+             <div class="p-4 border-t border-gray-200 flex-shrink-0">
+                <div class="flex items-center space-x-3">
+                    <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-indigo-100">
+                        <span class="text-sm font-medium leading-none text-indigo-700 user-initial">U</span>
+                    </span>
+                    <div>
+                        <p class="text-sm font-medium text-gray-700 user-name">User Name</p>
+                        <p class="text-xs text-gray-500">Pro Plan User</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-gray-100 flex-shrink-0">
+                <button id="logout-button" class="w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" aria-label="Log out of your account">
+                     <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <div id="sidebar-backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden md:hidden" aria-hidden="true"></div>
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:hidden flex-shrink-0">
+                <button id="hamburger-menu" class="p-2 text-gray-500 hover:text-gray-700" aria-label="Open navigation menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <a href="#search" class="flex items-center space-x-1 text-xl font-bold text-indigo-600 app-link">
+                    <span>P</span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play transform scale-x-[-1] rotate-[-90deg] w-4 h-4 inline-block"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg><span>pri</span>
+                </a>
+                 <div class="w-6"></div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8">
+                <div id="view-container">
+
+                    <section id="search-view" class="app-view">
+                        <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-4 sm:mb-6">Find What Matters in Videos</h1>
+
+                        <div class="bg-white p-4 sm:p-5 rounded-lg shadow border border-gray-200 mb-6 sm:mb-8">
+                            <div class="mb-4">
+                                <label for="search-source-url" class="block text-sm font-medium text-gray-700 mb-1">Video URL (Optional)</label>
+                                <input type="url" id="search-source-url" placeholder="Paste URL..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm" aria-label="Video URL to search within">
+                            </div>
+                             <div class="flex flex-col sm:flex-row sm:items-end gap-3">
+                                <div class="flex-grow">
+                                    <label for="search-query-input" class="block text-sm font-medium text-gray-700 mb-1">Describe what you're looking for</label>
+                                    <textarea id="search-query-input" rows="2" placeholder="e.g., 'cat jumping fail'" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm resize-y" aria-label="Describe the content you are searching for"></textarea>
+                                </div>
+                                <div class="flex items-center justify-end sm:justify-start gap-2 flex-shrink-0">
+                                    <button class="p-2 text-gray-500 hover:text-indigo-600 border rounded-md hover:bg-gray-100" aria-label="Search using voice (coming soon)" disabled>
+                                        <i data-lucide="mic" class="w-5 h-5"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-500 hover:text-indigo-600 border rounded-md hover:bg-gray-100" aria-label="Search using image (coming soon)" disabled>
+                                        <i data-lucide="image-plus" class="w-5 h-5"></i>
+                                    </button>
+                                    <button id="start-search-button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 h-10" aria-label="Start AI Search">
+                                        <i data-lucide="search" class="w-5 h-5"></i>
+                                        <span class="ml-2 hidden sm:inline">Search</span> </button>
+                                </div>
+                             </div>
+                        </div>
+
+                         <div id="search-results-section">
+                             <h2 class="text-lg sm:text-xl font-semibold text-gray-700 mb-4 flex items-center">
+                                 <i data-lucide="list-video" class="w-5 h-5 mr-2 text-indigo-600"></i> Results
+                             </h2>
+                             <div id="search-status" class="mb-4 p-3 text-center rounded-md hidden"></div>
+                             <div id="search-results-container" class="space-y-6 sm:space-y-8">
+                                 </div>
+                        </div>
+                    </section>
+
+                    <section id="history-view" class="app-view hidden">
+                         <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-6">Search History</h1>
+                         <div class="bg-white p-4 sm:p-5 rounded-lg shadow border border-gray-200">
+                            <p class="text-center text-gray-500 italic">History requires backend.</p>
+                         </div>
+                    </section>
+
+                    <section id="referrals-view" class="app-view hidden">
+                         <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-6">Referral Program</h1>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                             <div class="bg-white p-4 sm:p-5 rounded-lg shadow border border-gray-200">
+                                 <h2 class="text-base sm:text-lg font-semibold text-gray-700 mb-3">Share Papri!</h2>
+                                 <div class="flex items-center space-x-2 mb-4">
+                                     <input type="text" id="referral-code" value="PAPRI-DEMOCODE" readonly class="flex-grow px-3 py-1.5 border border-gray-300 rounded-md bg-gray-50 text-sm font-mono" aria-label="Your referral code">
+                                     <button id="copy-referral-code" class="p-1.5 text-gray-500 hover:text-indigo-600 border rounded-md hover:bg-gray-100" aria-label="Copy referral code">
+                                         <i data-lucide="copy" class="w-4 h-4"></i>
+                                     </button>
+                                 </div>
+                             </div>
+                             <div class="bg-white p-4 sm:p-5 rounded-lg shadow border border-gray-200">
+                                  <h2 class="text-base sm:text-lg font-semibold text-gray-700 mb-3">Your Stats</h2>
+                                  <p class="text-center text-gray-500 italic text-sm">Tracking requires backend.</p>
+                             </div>
+                         </div>
+                    </section>
+
+                    <section id="settings-view" class="app-view hidden">
+                         <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-6">Settings</h1>
+                          <div class="space-y-6 sm:space-y-8 max-w-3xl">
+                              <div class="bg-white p-4 sm:p-5 rounded-lg shadow border border-gray-200">
+                                 <h2 class="text-base sm:text-lg font-semibold text-gray-700 mb-4">Profile</h2>
+                                 <div class="space-y-3 text-sm">
+                                     <p>Name: <span class="font-medium text-gray-900 user-name">User Name</span></p>
+                                     <p>Email: <span id="profile-email" class="font-medium text-gray-900">user@example.com</span></p>
+                                     <button class="text-indigo-600 hover:underline text-xs">Change Password</button>
+                                 </div>
+                              </div>
+                              <div class="bg-white p-4 sm:p-5 rounded-lg shadow border border-gray-200">
+                                   <h2 class="text-base sm:text-lg font-semibold text-gray-700 mb-4">Subscription</h2>
+                                   <div class="space-y-3 text-sm mb-4">
+                                        <p>Plan: <span id="subscription-plan" class="font-medium text-gray-900">Pro Plan</span></p>
+                                        <p>Status: <span id="subscription-status" class="font-medium text-green-600">Active</span></p>
+                                        <p>Next Billing: <span id="subscription-next-billing">May 26, 2025</span></p>
+                                        <a href="#" class="text-indigo-600 hover:underline text-xs block">Manage Payment</a>
+                                    </div>
+                                    <div class="pt-4 border-t border-gray-100">
+                                        <h3 class="text-base font-medium text-gray-800 mb-2">Cancel Subscription</h3>
+                                        <p class="text-sm text-gray-600 mb-3">Access continues until <span id="subscription-end-date">May 26, 2025</span>.</p>
+                                        <button id="cancel-subscription-button" class="inline-flex items-center px-4 py-2 border border-red-300 text-sm font-medium rounded-md text-red-700 bg-white hover:bg-red-50" aria-label="Cancel your recurring subscription">
+                                            <i data-lucide="ban" class="w-4 h-4 mr-2"></i>
+                                            Cancel Subscription
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 sm:p-5 rounded-lg shadow border border-gray-200">
+                                    <h2 class="text-base sm:text-lg font-semibold text-gray-700 mb-4">Connected Accounts</h2>
+                                    <p class="text-sm text-gray-600 mb-4">Link accounts (Coming Soon).</p>
+                                    <div class="flex flex-wrap gap-4 text-gray-400">
+                                         <i data-lucide="facebook" class="w-6 h-6" aria-label="Facebook icon"></i>
+                                         <i data-lucide="instagram" class="w-6 h-6" aria-label="Instagram icon"></i>
+                                         <i data-lucide="twitter" class="w-6 h-6" aria-label="X (Twitter) icon"></i>
+                                         <i data-lucide="linkedin" class="w-6 h-6" aria-label="LinkedIn icon"></i>
+                                         <i data-lucide="youtube" class="w-6 h-6" aria-label="YouTube icon"></i>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 sm:p-5 rounded-lg shadow border border-gray-200">
+                                    <h2 class="text-base sm:text-lg font-semibold text-gray-700 mb-4">Custom Topic Feeds</h2>
+                                    <p class="text-sm text-gray-600 mb-4">Create feeds (Coming Soon).</p>
+                                    <button class="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700" aria-label="Create a new custom feed (feature coming soon)" disabled>
+                                        <i data-lucide="plus-circle" class="w-4 h-4 mr-2"></i> Create Feed
+                                    </button>
+                                </div>
+                          </div>
+                    </section>
+
+                </div> </main>
+        </div> </div>
+
+    <div id="dynamic-tooltip" class="tooltip-popup hidden"></div>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="papriapp.js"></script>
+</body>
+</html>
