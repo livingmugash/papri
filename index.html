@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papri - Instantly Find Any Moment in Your Videos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="papri.css">
+
+    <script src="https://unpkg.com/lucide-react@0.390.0/dist/umd/lucide.min.js"></script>
+
+    <script src="papri.js" defer></script>
+</head>
+<body class="antialiased text-slate-700 bg-white">
+
+    <header id="header" class="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 lg:px-6 py-3 flex justify-between items-center">
+            <a href="#hero" class="flex items-center space-x-1 text-3xl font-bold text-indigo-600">
+                <span>P</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play transform scale-x-[-1] rotate-[-90deg] w-6 h-6 inline-block"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>pri</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#try" class="nav-link">Try Papri</a>
+                <a href="#why-papri" class="nav-link">Why Papri?</a>
+                <a href="#steps" class="nav-link">How it Works</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            <div class="flex items-center space-x-2">
+                 <a href="#auth" class="px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-50 transition duration-150 ease-in-out">Login</a>
+                 <a href="#auth" class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition duration-150 ease-in-out">Sign Up</a>
+                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-500 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="sr-only">Open main menu</span>
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                 </button>
+            </div>
+        </nav>
+         <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#try" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 nav-link-mobile">Try Papri</a>
+                <a href="#why-papri" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 nav-link-mobile">Why Papri?</a>
+                <a href="#steps" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 nav-link-mobile">How it Works</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 nav-link-mobile">Pricing</a>
+                <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 nav-link-mobile">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="pt-20 pb-10 md:pt-28 md:pb-16 bg-gradient-to-b from-white to-indigo-50">
+            <div class="container mx-auto px-4 text-center">
+                 <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-indigo-700 uppercase bg-indigo-100 rounded-full">
+                     New AI-Powered Video Search
+                 </span>
+                <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Stop Searching, Start Finding. #'The Shazam for Content!'
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                    Instantly Access Any Moment<br class="sm:hidden"> in Any Content Available Online.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="#try" class="px-8 py-3 text-lg font-medium text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 transition duration-150 ease-in-out transform hover:-translate-y-1">
+                        Try Papri Free
+                    </a>
+                    <a href="#demo" class="px-8 py-3 text-lg font-medium text-indigo-700 bg-white border border-indigo-200 rounded-md hover:bg-indigo-50 transition duration-150 ease-in-out">
+                        Watch Demo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="try" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Experience Papri Now</h2>
+                     <p class="mt-3 text-lg text-slate-600">Enter a link (e.g., YouTube, Vimeo) or upload a file/screenshot/image, tell us what you're looking for, and let our AI pinpoint the exact moment.</p>
+                     <p id="trial-counter" class="mt-4 text-sm font-medium text-indigo-600">You have 3 free searches remaining.</p>
+                     <p id="trial-limit-message" class="mt-4 text-sm font-medium text-red-600 hidden">You've used all your free searches. <a href="#pricing" class="underline hover:text-red-700">Subscribe to continue searching!</a></p>
+                </div>
+
+                <div id="search-interface" class="mt-8 max-w-4xl mx-auto">
+                     <div class="bg-gray-50 p-6 md:p-8 rounded-lg shadow-md border border-gray-200">
+                         <form id="search-form" action="#"> <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                 <div>
+                                     <label for="video-source" class="block text-sm font-medium text-gray-700 mb-1">Content Source (URL or Upload)</label>
+                                     <input type="text" id="video-url" name="video_url" placeholder="Enter video URL (e.g., YouTube, Vimeo)" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                                     <span class="text-xs text-gray-500 mt-1 block text-center">or</span>
+                                     <label for="video-upload" class="mt-1 w-full flex justify-center items-center px-4 py-2 bg-white text-indigo-600 rounded-md shadow-sm tracking-wide border border-indigo-300 cursor-pointer hover:bg-indigo-50 hover:text-indigo-700 transition duration-150 ease-in-out text-sm">
+                                         <i data-lucide="upload-cloud" class="w-4 h-4 mr-2"></i>
+                                         <span>Upload File</span>
+                                         <input type='file' id="video-upload" name="video_file" class="hidden" accept="video/*" />
+                                     </label>
+                                     <p id="file-name-display" class="text-xs text-gray-600 mt-1 text-center"></p>
+                                 </div>
+                                 <div>
+                                     <label for="search-query" class="block text-sm font-medium text-gray-700 mb-1">What are you looking for?</label>
+                                     <textarea id="search-query" name="query" rows="4" placeholder="Describe the scene, object, spoken words, or action..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm resize-none"></textarea>
+                                 </div>
+                             </div>
+                             <div class="text-center">
+                                 <button type="submit" id="search-submit-button" class="inline-flex items-center px-8 py-2.5 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed">
+                                     <i data-lucide="search" class="w-5 h-5 mr-2 -ml-1"></i>
+                                     Find Moment
+                                 </button>
+                             </div>
+                         </form>
+                     </div>
+
+                     <div id="search-results-area" class="mt-8 hidden">
+                         <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">Search Results</h3>
+                         <div id="search-results-container" class="space-y-4">
+                             </div>
+                         <div id="search-in-progress" class="text-center py-6 hidden">
+                             <p class="text-lg text-indigo-600 animate-pulse">Searching... Please wait.</p>
+                         </div>
+                         <div id="search-error" class="text-center py-6 hidden">
+                            <p class="text-lg text-red-600">Something went wrong. Please try again.</p>
+                         </div>
+                         <div id="no-results" class="text-center py-6 hidden">
+                            <p class="text-lg text-gray-600">No moments found matching your query.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="py-16 md:py-24 bg-indigo-50">
+            <div class="container mx-auto px-4 text-center">
+                 <h3 class="text-xl font-semibold text-indigo-800 mb-4">Watch Quick Demo</h3>
+                <div class="max-w-4xl mx-auto aspect-video rounded-lg overflow-hidden shadow-xl border border-gray-200">
+                    <video controls class="w-full h-full" poster="placeholder_poster.jpg"> <source src="your_demo_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-papri" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Tired of Scrubbing Through Videos?</h2>
+                    <p class="mt-3 text-lg text-slate-600">Stop wasting hours manually searching. Papri's AI understands your favorite content (videos, Memes, Reels,<e class="t c"></e>), letting you find exactly what you need, instantly.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="inline-flex items-center justify-center w-12 h-12 mb-4 text-indigo-600 bg-indigo-100 rounded-full">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Instant Pinpoint Accuracy</h3>
+                        <p class="text-slate-600">No more endless scrubbing. Describe what you're looking for (spoken words, objects, actions, scenes) and Papri takes you to the precise moment in seconds.</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="inline-flex items-center justify-center w-12 h-12 mb-4 text-indigo-600 bg-indigo-100 rounded-full">
+                            <i data-lucide="search-code" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Search *Inside* Your Favorite Content</h3>
+                        <p class="text-slate-600">Papri goes beyond titles and descriptions. Our AI analyzes the actual content – audio transcripts, visual elements, and context – for truly relevant results.</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg border border-gray-100">
+                         <div class="inline-flex items-center justify-center w-12 h-12 mb-4 text-indigo-600 bg-indigo-100 rounded-full">
+                            <i data-lucide="save" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Save Time & Boost Productivity</h3>
+                        <p class="text-slate-600">Reclaim hours lost to manual searching. Perfect for content creators, researchers, students, and anyone who works extensively with video content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="steps" class="py-16 md:py-24 bg-indigo-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Get Started in 3 Simple Steps</h2>
+                    <p class="mt-3 text-lg text-slate-600">Unlock the power of your video library effortlessly.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <i data-lucide="link" class="step-icon"></i>
+                        <h3 class="step-title">Provide Your Content</h3>
+                        <p class="step-description">Paste a link (YouTube, Vimeo, Instagram, Tiktok, etc.) or securely upload your content file directly to Papri.</p>
+                    </div>
+                     <div class="step-card">
+                         <div class="step-number">2</div>
+                        <i data-lucide="type" class="step-icon"></i>
+                        <h3 class="step-title">Describe Your Moment</h3>
+                        <p class="step-description">Tell Papri what you're searching for – keywords, spoken phrases, visual descriptions, or actions.</p>
+                    </div>
+                     <div class="step-card">
+                         <div class="step-number">3</div>
+                        <i data-lucide="locate-fixed" class="step-icon"></i>
+                        <h3 class="step-title">Find Instantly</h3>
+                        <p class="step-description">Our AI scans the whole internet and presents the exact content matching your query, ready to view, trim, or download.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-16 md:py-24 bg-gradient-to-b from-white to-indigo-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Ready to Unlock Unlimited Access?</h2>
+                     <p class="mt-3 text-lg text-slate-600">Go beyond the free trial and revolutionize how you interact with content.</p>
+                 </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-indigo-200 p-8 flex flex-col">
+                        <h3 class="text-2xl font-semibold text-gray-800 text-center">Pro Plan</h3>
+                        <p class="mt-2 text-center text-slate-600">For individuals and small teams.</p>
+                        <p class="mt-5 text-center">
+                            <span class="text-5xl font-extrabold text-gray-900">$6</span>
+                            <span class="text-base font-medium text-slate-500">/ month</span>
+                        </p>
+                        <p class="mt-1 text-center text-sm text-slate-500">Billed monthly, cancel anytime.</p>
+
+                        <ul class="mt-6 space-y-3 flex-grow">
+                            <li class="flex space-x-3">
+                                <i data-lucide="check-circle" class="flex-shrink-0 w-5 h-5 text-green-500"></i>
+                                <span class="text-slate-700">Unlimited content searches</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-lucide="check-circle" class="flex-shrink-0 w-5 h-5 text-green-500"></i>
+                                <span class="text-slate-700">Support for YouTube, Vimeo, Tiktok, Instagram, uploads</span>
+                            </li>
+                             <li class="flex space-x-3">
+                                <i data-lucide="check-circle" class="flex-shrink-0 w-5 h-5 text-green-500"></i>
+                                <span class="text-slate-700">AI-powered content analysis</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-lucide="check-circle" class="flex-shrink-0 w-5 h-5 text-green-500"></i>
+                                <span class="text-slate-700">Timestamped results</span>
+                            </li>
+                             <li class="flex space-x-3">
+                                <i data-lucide="check-circle" class="flex-shrink-0 w-5 h-5 text-green-500"></i>
+                                <span class="text-slate-700">Download & Trim segments (coming soon)</span>
+                            </li>
+                             <li class="flex space-x-3">
+                                <i data-lucide="check-circle" class="flex-shrink-0 w-5 h-5 text-green-500"></i>
+                                <span class="text-slate-700">Priority support</span>
+                            </li>
+                        </ul>
+                         <p class="mt-6 text-center text-sm text-slate-500">Need enterprise features? <a href="mailto:sales@papri.example.com" class="font-medium text-indigo-600 hover:underline">Contact Sales</a></p>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 p-8">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-5 text-center">Complete Your Secure Payment</h3>
+                        <form id="payment-form" class="space-y-4">
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 p-6 md:p-8 flex flex-col">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-5 text-center">Choose Your Payment Method</h3>
+                            
+                                <div class="mb-6 border-b border-gray-200">
+                                    <nav class="-mb-px flex space-x-4" aria-label="Tabs">
+                                        <button data-payment-method="card" class="payment-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600" aria-current="page">
+                                            <i data-lucide="credit-card" class="inline-block w-4 h-4 mr-1"></i> Card
+                                        </button>
+                                        <button data-payment-method="mpesa" class="payment-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                                            <i data-lucide="smartphone" class="inline-block w-4 h-4 mr-1"></i> M-Pesa
+                                        </button>
+                                         <button data-payment-method="flutterwave" class="payment-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                                            <i data-lucide="globe" class="inline-block w-4 h-4 mr-1"></i> Flutterwave
+                                        </button>
+                                        <button data-payment-method="bank" class="payment-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                                            <i data-lucide="landmark" class="inline-block w-4 h-4 mr-1"></i> Bank Transfer
+                                        </button>
+                                    </nav>
+                                </div>
+                            
+                                <div class="flex-grow">
+                                    <form id="payment-form" class="space-y-4">
+                                        <div>
+                                            <label for="payment-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                            <input type="email" name="email" id="payment-email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="you@example.com">
+                                            <p class="mt-1 text-xs text-slate-500">Your receipt and signup code will be sent here.</p>
+                                        </div>
+                            
+                                        <div id="payment-card-area" class="payment-method-area space-y-4">
+                                            <div>
+                                                <label for="card-element" class="block text-sm font-medium text-gray-700">
+                                                    Credit or debit card (Visa, Mastercard, etc.)
+                                                </label>
+                                                <div id="card-element" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm bg-gray-50"></div>
+                                                <div id="card-errors" role="alert" class="text-xs text-red-600 mt-1 h-4"></div>
+                                            </div>
+                                             <p class="text-xs text-slate-500 text-center pt-2">
+                                                <i data-lucide="lock" class="w-3 h-3 inline-block mr-1 text-gray-400"></i>
+                                                Secure payment processing by Gateway.
+                                             </p>
+                                             <button type="submit" data-method="card" class="payment-submit-button w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-lg text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out transform hover:-translate-y-0.5 disabled:opacity-70">
+                                                Pay $6 Securely
+                                            </button>
+                                        </div>
+                            
+                                        <div id="payment-mpesa-area" class="payment-method-area space-y-4 hidden">
+                                             <div>
+                                                 <label for="mpesa-phone" class="block text-sm font-medium text-gray-700">M-Pesa Phone Number</label>
+                                                 <input type="tel" name="mpesa_phone" id="mpesa-phone" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="e.g., 2547XXXXXXXX">
+                                                 <p class="mt-1 text-xs text-slate-500">Enter the number you will pay from.</p>
+                                             </div>
+                                            <div class="p-4 bg-green-50 border border-green-200 rounded-md text-sm text-green-800">
+                                                <p class="font-medium mb-2">Instructions:</p>
+                                                <ol class="list-decimal list-inside space-y-1">
+                                                    <li>Go to your M-Pesa menu.</li>
+                                                    <li>Select "Lipa na M-Pesa".</li>
+                                                    <li>Select "Pay Bill".</li>
+                                                    <li>Enter Business No: <strong class="text-black">XXXXXX</strong></li> 
+                                                    <li>Enter Account No: <strong class="text-black">PAPRI<span id="mpesa-ref-placeholder"></span></strong></li>
+                                                    <li>Enter Amount: <strong class="text-black">KES YYY</strong></li>
+                                                    <li>Enter your M-Pesa PIN and Send.</li>
+                                                </ol>
+                                                <p class="mt-3 text-xs">After sending, click 'Confirm Payment' below. We'll verify your transaction (may take a minute).</p>
+                                            </div>
+                                             <button type="submit" data-method="mpesa" class="payment-submit-button w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-lg text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out transform hover:-translate-y-0.5 disabled:opacity-70">
+                                                 Confirm M-Pesa Payment ($6)
+                                            </button>
+                                        </div>
+                            
+                                        <div id="payment-flutterwave-area" class="payment-method-area space-y-4 hidden">
+                                            <div class="p-4 bg-blue-50 border border-blue-200 rounded-md text-sm text-blue-800 text-center">
+                                                <p>You'll be redirected to Flutterwave to complete your payment using various methods (Card, Mobile Money, Bank Transfer, etc.).</p>
+                                            </div>
+                                             <button type="submit" data-method="flutterwave" class="payment-submit-button w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-lg text-base font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 transition duration-150 ease-in-out transform hover:-translate-y-0.5 disabled:opacity-70">
+                                                 <img src="https://flutterwave.com/images/logo-colored.svg" alt="Flutterwave" class="h-5 mr-2">
+                                                 Pay $6 with Flutterwave
+                                            </button>
+                                        </div>
+                            
+                                        <div id="payment-bank-area" class="payment-method-area space-y-4 hidden">
+                                            <div class="p-4 bg-gray-50 border border-gray-200 rounded-md text-sm text-gray-800">
+                                                <p class="font-medium mb-2">Instructions for Direct Bank Transfer:</p>
+                                                <ul class="space-y-1">
+                                                    <li>Bank Name: <strong class="text-black">Example Bank PLC</strong></li>
+                                                    <li>Account Name: <strong class="text-black">Papri Inc.</strong></li>
+                                                    <li>Account Number: <strong class="text-black">1234567890</strong></li>
+                                                    <li>Branch Code: <strong class="text-black">01234</strong> (if applicable)</li>
+                                                    <li>SWIFT/BIC: <strong class="text-black">EXAMPKENXXXX</strong> (for international)</li>
+                                                    <li>Amount: <strong class="text-black">$6 USD</strong> (or KES equivalent ZZZ)</li>
+                                                    <li>Reference/Narration: <strong class="text-black">Papri-<span id="bank-ref-placeholder">YourEmail</span></strong></li> 
+                                                </ul>
+                                                <p class="mt-3 text-xs">After making the transfer, please click 'Confirm Transfer'. Verification may take up to 24 hours. We will email you once confirmed.</p>
+                                            </div>
+                                             <button type="submit" data-method="bank" class="payment-submit-button w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-lg text-base font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out transform hover:-translate-y-0.5 disabled:opacity-70">
+                                                 I Have Made the Transfer ($6)
+                                            </button>
+                                        </div>
+                            
+                                        <input type="hidden" name="payment_method" id="selected-payment-method" value="card">
+                                        <input type="hidden" name="amount" value="600"> <input type="hidden" name="currency" value="usd">
+                            
+                                    </form>
+                                </div>
+                            
+                                <div class="mt-auto pt-4">
+                                     <div id="payment-processing" class="text-center py-3 hidden">
+                                        <p class="text-sm text-indigo-600 animate-pulse">Processing payment...</p>
+                                     </div>
+                                      <div id="payment-waiting" class="text-center py-3 hidden">
+                                        <p class="text-sm text-gray-600">Waiting for payment confirmation...</p>
+                                     </div>
+                                    <div id="payment-success" class="text-center p-4 bg-green-50 border border-green-200 rounded-md hidden">
+                                         <p class="text-sm font-medium text-green-800">Payment Confirmed!</p>
+                                         <p class="text-sm text-green-700 mt-1">Your 6-digit signup code: <strong id="signup-code" class="text-lg tracking-widest">******</strong></p>
+                                         <p class="text-xs text-green-600 mt-1">(Check your email too! You'll need this for signup.)</p>
+                                          <a href="#auth" class="mt-3 inline-block text-sm text-indigo-600 hover:underline font-medium">Proceed to Sign Up &rarr;</a>
+                                     </div>
+                                     <div id="payment-error" class="text-center p-3 bg-red-50 border border-red-200 rounded-md hidden">
+                                        <p class="text-sm font-medium text-red-700">Payment Failed</p>
+                                        <p id="payment-error-message" class="text-xs text-red-600 mt-1">An error occurred. Please try again or contact support.</p>
+                                     </div>
+                                </div>
+                            
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="auth" class="py-16 md:py-24 bg-white">
+             <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+
+                    <div class="auth-form-container p-8 rounded-lg shadow-md border border-gray-200 bg-gradient-to-br from-indigo-50 to-white">
+                         <h2 class="text-2xl font-bold text-center text-gray-800 mb-1">Create Your Account</h2>
+                         <p class="text-sm text-center text-slate-600 mb-6">Start your journey with Papri.</p>
+                        <form id="signup-form" class="space-y-4">
+                             <div>
+                                <label for="signup-code-input" class="block text-sm font-medium text-gray-700">6-Digit Signup Code</label>
+                                <input type="text" name="signup_code" id="signup-code-input" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Enter code from payment/email">
+                            </div>
+                            <div>
+                                <label for="signup-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" name="signup_email" id="signup-email" required autocomplete="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="you@example.com">
+                            </div>
+                            <div>
+                                <label for="signup-password" class="block text-sm font-medium text-gray-700">Password</label>
+                                <input type="password" name="signup_password" id="signup-password" required autocomplete="new-password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Create a strong password">
+                            </div>
+                             <div>
+                                <label for="signup-password-confirm" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                                <input type="password" name="signup_password_confirm" id="signup-password-confirm" required autocomplete="new-password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Re-enter your password">
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="auth-form-container p-8 rounded-lg shadow-md border border-gray-200 bg-gradient-to-br from-gray-800 to-slate-900 text-white">
+                         <h2 class="text-2xl font-bold text-center text-white mb-1">Welcome Back!</h2>
+                         <p class="text-sm text-center text-slate-400 mb-6">Log in to access your Papri dashboard.</p>
+                        <form id="login-form" class="space-y-4">
+                            <div>
+                                <label for="login-email" class="block text-sm font-medium text-slate-300">Email Address</label>
+                                <input type="email" name="login_email" id="login-email" required autocomplete="email" class="mt-1 block w-full px-3 py-2 border border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-slate-700 text-white placeholder-slate-400" placeholder="you@example.com">
+                            </div>
+                            <div>
+                                <label for="login-password" class="block text-sm font-medium text-slate-300">Password</label>
+                                <input type="password" name="login_password" id="login-password" required autocomplete="current-password" class="mt-1 block w-full px-3 py-2 border border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-slate-700 text-white placeholder-slate-400" placeholder="Enter your password">
+                            </div>
+                             <div class="flex items-center justify-between">
+                                <div class="text-sm">
+                                    <a href="#" class="font-medium text-indigo-400 hover:text-indigo-300"> Forgot your password? </a>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">Log In</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10">Frequently Asked Questions</h2>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <details class="faq-item group bg-white p-4 rounded-lg shadow-sm border border-gray-200 transition duration-300 ease-in-out hover:border-indigo-200">
+                        <summary class="faq-summary">
+                            <span>How accurate is the AI search?</span>
+                            <span class="accordion-icon">
+                                <i data-lucide="plus" class="icon-open w-5 h-5 text-indigo-600"></i>
+                                <i data-lucide="minus" class="icon-close hidden w-5 h-5 text-indigo-600"></i>
+                            </span>
+                        </summary>
+                        <div class="faq-content">
+                            Papri uses state-of-the-art AI models trained on vast amounts of every contect data available Online. It analyzes transcripts, visual elements, and context to provide highly relevant results. Accuracy improves continuously as the AI learns, but complex or ambiguous queries might occasionally yield less precise results. We aim for pinpoint accuracy in most common use cases like finding specific spoken phrases or visually distinct objects/scenes.
+                        </div>
+                    </details>
+                    <details class="faq-item group bg-white p-4 rounded-lg shadow-sm border border-gray-200 transition duration-300 ease-in-out hover:border-indigo-200">
+                        <summary class="faq-summary">
+                             <span>What video formats and sources are supported?</span>
+                             <span class="accordion-icon">
+                                <i data-lucide="plus" class="icon-open w-5 h-5 text-indigo-600"></i>
+                                <i data-lucide="minus" class="icon-close hidden w-5 h-5 text-indigo-600"></i>
+                             </span>
+                         </summary>
+                         <div class="faq-content">
+                            Currently, Papri supports direct links from major platforms like YouTube, Instagram, Tiktok, and Vimeo. You can also upload common file formats (MP4, MOV, AVI, etc. - subject to reasonable size limits on the free tier). We are continuously working to expand support for more platforms and formats based on user feedback.
+                         </div>
+                    </details>
+                    <details class="faq-item group bg-white p-4 rounded-lg shadow-sm border border-gray-200 transition duration-300 ease-in-out hover:border-indigo-200">
+                        <summary class="faq-summary">
+                            <span>Is my uploaded content secure?</span>
+                            <span class="accordion-icon">
+                                <i data-lucide="plus" class="icon-open w-5 h-5 text-indigo-600"></i>
+                                <i data-lucide="minus" class="icon-close hidden w-5 h-5 text-indigo-600"></i>
+                            </span>
+                        </summary>
+                        <div class="faq-content">
+                            Yes, security is a top priority. Uploaded content are processed securely, and we employ industry-standard practices for data protection and privacy. Your content is used solely for the purpose of providing the search results you requested. Please refer to our Privacy Policy for detailed information.
+                        </div>
+                    </details>
+                     <details class="faq-item group bg-white p-4 rounded-lg shadow-sm border border-gray-200 transition duration-300 ease-in-out hover:border-indigo-200">
+                        <summary class="faq-summary">
+                            <span>How does the 3 free searches limit work?</span>
+                            <span class="accordion-icon">
+                                <i data-lucide="plus" class="icon-open w-5 h-5 text-indigo-600"></i>
+                                <i data-lucide="minus" class="icon-close hidden w-5 h-5 text-indigo-600"></i>
+                            </span>
+                        </summary>
+                        <div class="faq-content">
+                            To let you experience Papri's capabilities, we offer 3 free searches. This count is tracked using a browser cookie. Each time you submit a search (either via URL or upload), the counter decreases. Once you reach zero, the search interface will be disabled, prompting you to subscribe for unlimited access. This limit persists even if you refresh the page or close your browser.
+                        </div>
+                    </details>
+                     <details class="faq-item group bg-white p-4 rounded-lg shadow-sm border border-gray-200 transition duration-300 ease-in-out hover:border-indigo-200">
+                        <summary class="faq-summary">
+                            <span>What happens after I pay? How do I get the signup code?</span>
+                             <span class="accordion-icon">
+                                <i data-lucide="plus" class="icon-open w-5 h-5 text-indigo-600"></i>
+                                <i data-lucide="minus" class="icon-close hidden w-5 h-5 text-indigo-600"></i>
+                            </span>
+                        </summary>
+                        <div class="faq-content">
+                            Upon successful payment verification via Stripe, a unique 6-digit signup code will be instantly displayed on the screen within the payment confirmation message. We will ALSO send this code to the email address you provided during checkout. You'll need this code only for your *first* signup to create your Papri account.
+                        </div>
+                    </details>
+                     <details class="faq-item group bg-white p-4 rounded-lg shadow-sm border border-gray-200 transition duration-300 ease-in-out hover:border-indigo-200">
+                        <summary class="faq-summary">
+                            <span>Can I trim or download video segments?</span>
+                             <span class="accordion-icon">
+                                <i data-lucide="plus" class="icon-open w-5 h-5 text-indigo-600"></i>
+                                <i data-lucide="minus" class="icon-close hidden w-5 h-5 text-indigo-600"></i>
+                            </span>
+                        </summary>
+                        <div class="faq-content">
+                            The ability to trim and download the specific video segments identified by Papri is a planned feature for our Pro plan subscribers and is currently under development ("coming soon"). Our goal is to allow you to easily extract the exact moments you find without needing external editing software for simple clips.
+                        </div>
+                    </details>
+                    <details class="faq-item group bg-white p-4 rounded-lg shadow-sm border border-gray-200 transition duration-300 ease-in-out hover:border-indigo-200">
+                        <summary class="faq-summary">
+                            <span>Can I cancel my subscription?</span>
+                             <span class="accordion-icon">
+                                <i data-lucide="plus" class="icon-open w-5 h-5 text-indigo-600"></i>
+                                <i data-lucide="minus" class="icon-close hidden w-5 h-5 text-indigo-600"></i>
+                            </span>
+                        </summary>
+                        <div class="faq-content">Yes, the $6 plan is billed monthly, and you can cancel anytime before your next billing date through your account settings (once logged in) to avoid future charges.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-10 px-4 mt-10">
+          <div class="container mx-auto text-center text-sm">
+            <p>© <span id="currentYear"></span> Papri. Find favorite content moments, faster.</p>
+            <div class="mt-4 space-x-4 md:space-x-6">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <span class="text-slate-600">|</span>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <span class="text-slate-600 hidden sm:inline">|</span>
+                <a href="mailto:support@papri.example.com" class="footer-link block mt-2 sm:mt-0 sm:inline">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
